@@ -25,6 +25,58 @@ In this work, we introduce a sampling-free approach that is generic and easy to 
 
 **Motivation:** The second pass reconstructs the second input, expecting lower error for in-distribution data and higher for out-of-distribution, enabling uncertainty estimation. When given a correct label with input , the network, trained to minimize the difference between outputs, indicates in-distribution data. If is incorrect, this out-of-distribution sample prompts an unpredictable response, which we use to gauge uncertainty. This mechanism addresses both epistemic uncertainty when is OOD and aleatoric uncertainty when is errornous. 
 
+## Implementation
+
+Integrating ZigZag into standard models is notably straightforward, requiring only minimal modifications to the first layer to accept an additional input. This simplicity enables the model to efficiently make two types of predictions—initially without and then with its own previous outputs as inputs. 
+
+**Original architecture:**
+```python 
+class MLP(nn.Module):
+    def __init__(self, in_features, out_features):
+        super().__init__()
+        self.out_features = out_features
+
+        self.input = nn.Linear(in_features, 8)
+        self.hidden1 = nn.Linear(8, 16)
+        self.hidden2 = nn.Linear(16, 8)
+        self.output = nn.Linear(8, out_features)
+
+        self.activation = nn.ReLU()
+
+    def forward(self, x, y=None):
+        x = self.activation(self.input(x))
+        x = self.activation(self.hidden1(x))
+        x = self.activation(self.hidden2(x))
+        return self.output(x)
+```
+**Modified architecture:**
+```python 
+class ZigZagMLP(nn.Module):
+    def __init__(self, in_features, out_features):
+        super().__init__()
+        self.out_features = out_features
+
+        # Modifying the first layer
+        self.input = nn.Linear(in_features + out_features, 8)
+        self.hidden1 = nn.Linear(8, 16)
+        self.hidden2 = nn.Linear(16, 8)
+        self.output = nn.Linear(8, out_features)
+
+        self.activation = nn.ReLU()
+
+    def forward(self, x, y=None):
+        # Adding the second input
+        if y is None:
+            batch = x.shape[0]
+            y = torch.zeros((batch, self.out_features))
+        x = torch.cat([x, y], dim=1)
+
+        x = self.activation(self.input(x))
+        x = self.activation(self.hidden1(x))
+        x = self.activation(self.hidden2(x))
+        return self.output(x)
+```
+
 ## Experiments
 
 ### 1D Regression 
