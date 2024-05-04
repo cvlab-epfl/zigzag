@@ -21,7 +21,7 @@ In this work, we introduce a sampling-free approach that is generic and easy to 
 
 ![Project Page](./src/arch.png)
 
-**ZigZaging:** At inference time, we make two forward passes. First, we use $[\mathbf{x}, \textbf{0}]$ as input to produce a prediction $\mathbf{y}_{0}$. Second, we feed $[\mathbf{x}, \mathbf{y}_{0}]$ to the network and generate $\mathbf{y}_{1}$. We take $\| \mathbf{y}_{0} - \mathbf{y}_{1} \|$ to be our uncertainty estimate. In essence, the second pass performs a reconstruction in much the same way an auto-encoder does and a high reconstruction error correlates with uncertainty.
+**ZigZaging:** At inference time, we make two forward passes. First, we use $[\mathbf{x}, \textbf{0}]$ as input to produce a prediction $\mathbf{y}\_{0}$. Second, we feed $[\mathbf{x}, \mathbf{y}\_{0}]$ to the network and generate $\mathbf{y}\_{1}$. We take $\| \mathbf{y}\_{0} - \mathbf{y}\_{1} \|$ to be our uncertainty estimate. In essence, the second pass performs a reconstruction in much the same way an auto-encoder does and a high reconstruction error correlates with uncertainty.
 
 **Motivation:** The second pass reconstructs the second input, expecting lower error for in-distribution data and higher for out-of-distribution, enabling uncertainty estimation. When given a correct label with input , the network, trained to minimize the difference between outputs, indicates in-distribution data. If is incorrect, this out-of-distribution sample prompts an unpredictable response, which we use to gauge uncertainty. This mechanism addresses both epistemic uncertainty when is OOD and aleatoric uncertainty when is errornous. 
 
