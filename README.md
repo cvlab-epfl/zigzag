@@ -77,6 +77,10 @@ class ZigZagMLP(nn.Module):
         return self.output(x)
 ```
 
+## Installation 
+
+TBD
+
 ## Experiments
 
 ### 1D Regression 
