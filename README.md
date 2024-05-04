@@ -23,3 +23,7 @@ In this work, we introduce a sampling-free approach that is generic and easy to 
 ### UCI Datasets Regression
 
 [![Open Masksembles in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cvlab-epfl/zigzag/blob/main/exps/notebooks/uci_regression.ipynb)
+
+### MNIST Classification
+
+[![Open Masksembles in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cvlab-epfl/zigzag/blob/main/exps/notebooks/mnist_classification.ipynb)
