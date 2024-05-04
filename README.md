@@ -1,4 +1,11 @@
-# zigzag
-Official code for "ZigZag: Universal Sampling-free Uncertainty Estimation Through Two-Step Inference"
+# ZigZag: Universal Sampling-free Uncertainty Estimation Through Two-Step Inference
 
-(Coming soon!)
+![Project Page](./src/teaser.gif)
+
+### [Project Page](https://www.norange.io/projects/zigzag/) | [OpenReview](https://openreview.net/forum?id=QSvb6jBXML) | [Paper](https://arxiv.org/abs/2211.11435)
+
+## Abstract
+
+Whereas the ability of deep networks to produce useful predictions on many kinds of data has been amply demonstrated, estimating the reliability of these predictions remains challenging. Sampling approaches such as MC-Dropout and Deep Ensembles have emerged as the most popular ones for this purpose. Unfortunately, they require many forward passes at inference time, which slows them down. Sampling-free approaches can be faster but often suffer from other drawbacks, such as lower reliability of uncertainty estimates, difficulty of use, and limited applicability to different types of tasks and data.
+
+In this work, we introduce a sampling-free approach that is generic and easy to deploy, while producing reliable uncertainty estimates on par with state-of-the-art methods at a significantly lower computational cost. It is predicated on training the network to produce the same output with and without additional information about it. At inference time, when no prior information is given, we use the network's own prediction as the additional information. We then take the distance between the predictions with and without prior information as our uncertainty measure.
