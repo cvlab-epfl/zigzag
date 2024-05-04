@@ -2,7 +2,7 @@
 
 ![Project Page](./src/teaser.gif)
 
-[![arXiv](https://img.shields.io/badge/cs.CV-arXiv%3A2211.11435-blue?logo=arxiv&color=red)](https://arxiv.org/abs/2006.08437)
+[![arXiv](https://img.shields.io/badge/cs.CV-arXiv%3A2211.11435-blue?logo=arxiv&color=red)](https://arxiv.org/abs/2211.11435)
 [![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python&color=blue)](https://www.python.org/downloads/release/python-31014/)
 [![Pytorch](https://img.shields.io/badge/Pytorch-2.2.1-blue?logo=pytorch&color=blue)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](https://github.com/cvlab-epfl/zigzag/blob/main/LICENSE)
