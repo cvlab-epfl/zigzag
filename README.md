@@ -10,6 +10,10 @@ Whereas the ability of deep networks to produce useful predictions on many kinds
 
 In this work, we introduce a sampling-free approach that is generic and easy to deploy, while producing reliable uncertainty estimates on par with state-of-the-art methods at a significantly lower computational cost. It is predicated on training the network to produce the same output with and without additional information about it. At inference time, when no prior information is given, we use the network's own prediction as the additional information. We then take the distance between the predictions with and without prior information as our uncertainty measure.
 
+## TL;DR
+
+![Project Page](./src/arch.png)
+
 ## Experiments
 
 ### 1D Regression
