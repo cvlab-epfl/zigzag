@@ -35,7 +35,7 @@ In this work, we introduce a sampling-free approach that is generic and easy to 
 
 ### UCI Datasets Regression
 
-TBD
+We trained three different models—ZigZag, an ensemble of simple MLPs, and MC Dropout—on various UCI datasets including Boston Housing, Yacht, Power Plant, and Energy to predict their respective target variables. We split the data into in- and out-of-distribution samples based on the values of a specific feature. We then used uncertainty measures and AUC metrics to evaluate the accuracy of uncertainty predictions.
 
 [![Open ZigZag in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cvlab-epfl/zigzag/blob/main/exps/notebooks/uci_regression.ipynb)
 
@@ -47,13 +47,13 @@ TBD
 
 ### CIFAR Classification
 
-TBD
+**CIFAR10 vs SVHN:** We trained on CIFAR10, evaluating accuracy and calibration. Uncertainty measures help classify images from CIFAR10 and SVHN test sets for out-of-distribution (OOD) analysis, using ROC and PR-AUC metrics. We utilized the Deep Layer Aggregation (DLA) network, known for superior performance over models like ResNet or VGG, particularly effective in small training sets to avoid overfitting. OOD samples were drawn from SVHN, featuring distinct classes like road sign digits.
 
 [![Open ZigZag in Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
 
 ### Airfoils Regression
 
-TBD
+**Lift-to-drag prediction:** We trained a Graph Neural Network (GNN) on a dataset of 2,000 NACA wing profiles to predict their lift-to-drag coefficients, using parameters and aerodynamic simulations provided by XFoil. We reserved the top 5% of profiles with the highest lift-to-drag ratios as out-of-distribution (OOD) samples to test the model's robustness. The training set consisted of 80% of the remaining profiles, with the rest used for testing, all spanning lift-to-drag values from 0 to 60. The GNN features 25 GMM layers with ELU nonlinearities and skip connections, optimizing for both predictive accuracy and effective OOD detection.
 
 [![Open ZigZag in Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
 
