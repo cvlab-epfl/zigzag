@@ -79,7 +79,12 @@ class ZigZagMLP(nn.Module):
 
 ## Installation 
 
-TBD
+```bash
+python -m venv zigzag
+source zigzag/bin/activate
+pip install torch==2.2.1+cpu torchvision torchaudio -f https://download.pytorch.org/whl/cpu/torch_stable.html
+pip install numpy matplotlib
+```
 
 ## Experiments
 
@@ -101,6 +106,8 @@ We trained three different models—ZigZag, an ensemble of simple MLPs, and MC D
 
 [![Open ZigZag in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cvlab-epfl/zigzag/blob/main/exps/notebooks/mnist_classification.ipynb)
 
+<!---
+FOR LATER
 ### CIFAR Classification
 
 **CIFAR10 vs SVHN:** We trained on CIFAR10, evaluating accuracy and calibration. Uncertainty measures help classify images from CIFAR10 and SVHN test sets for out-of-distribution (OOD) analysis, using ROC and PR-AUC metrics. We utilized the Deep Layer Aggregation (DLA) network, known for superior performance over models like ResNet or VGG, particularly effective in small training sets to avoid overfitting. OOD samples were drawn from SVHN, featuring distinct classes like road sign digits.
@@ -112,6 +119,7 @@ We trained three different models—ZigZag, an ensemble of simple MLPs, and MC D
 **Lift-to-drag prediction:** We trained a Graph Neural Network (GNN) on a dataset of 2,000 NACA wing profiles to predict their lift-to-drag coefficients, using parameters and aerodynamic simulations provided by XFoil. We reserved the top 5% of profiles with the highest lift-to-drag ratios as out-of-distribution (OOD) samples to test the model's robustness. The training set consisted of 80% of the remaining profiles, with the rest used for testing, all spanning lift-to-drag values from 0 to 60. The GNN features 25 GMM layers with ELU nonlinearities and skip connections, optimizing for both predictive accuracy and effective OOD detection.
 
 [![Open ZigZag in Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
+-->
 
 ## Citation
 
