@@ -106,13 +106,13 @@ We trained three different models—ZigZag, an ensemble of simple MLPs, and MC D
 
 [![Open ZigZag in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cvlab-epfl/zigzag/blob/main/exps/notebooks/mnist_classification.ipynb)
 
-<!---
-FOR LATER
 ### CIFAR Classification
 
-**CIFAR10 vs SVHN:** We trained on CIFAR10, evaluating accuracy and calibration. Uncertainty measures help classify images from CIFAR10 and SVHN test sets for out-of-distribution (OOD) analysis, using ROC and PR-AUC metrics. We utilized the Deep Layer Aggregation (DLA) network, known for superior performance over models like ResNet or VGG, particularly effective in small training sets to avoid overfitting. OOD samples were drawn from SVHN, featuring distinct classes like road sign digits.
+**CIFAR10 vs SVHN:** We trained on CIFAR10, evaluating accuracy and OOD detection quality. Uncertainty measures help classify images from CIFAR10 and SVHN test sets for out-of-distribution (OOD) analysis, using ROC and PR-AUC metrics. We utilized the Deep Layer Aggregation (DLA) network, known for superior performance over models like ResNet or VGG, particularly effective in small training sets to avoid overfitting. OOD samples were drawn from SVHN, featuring distinct classes like road sign digits.
 
-[![Open ZigZag in Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
+[![Open ZigZag in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cvlab-epfl/zigzag/blob/main/exps/notebooks/cifar_classification.ipynb)
+
+<!---
 
 ### Airfoils Regression
 
